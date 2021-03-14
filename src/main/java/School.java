@@ -4,6 +4,8 @@ public class School implements Comparable<School> {
     private final String name;
     private final Integer capacity;
 
+    private int score = 0;
+
     public String getName() {
         return name;
     }
@@ -20,7 +22,7 @@ public class School implements Comparable<School> {
     public void printInfo() {
         System.out.print(
                 "Name: " +
-                this.name +
+                        this.name +
                         "; " +
                         "Capacity: " +
                         this.capacity +
@@ -29,6 +31,15 @@ public class School implements Comparable<School> {
 
     }
 
+    @Override
+    public String toString() {
+        return "Name: " +
+                this.name +
+                "; " +
+                "Capacity: " +
+                this.capacity +
+                '\n';
+    }
 
     @Override
     public int compareTo(@NotNull School o) { // To be able to make a TreeSet out of Schools

@@ -1,12 +1,11 @@
 import java.util.*;
-import java.util.function.BiConsumer;
 import java.util.stream.IntStream;
 
 public class Compulsory {
     public void executeCompulsory() {
         int numberOfStudents = 3; //actually 3+1
         var students = IntStream.rangeClosed(0, numberOfStudents)
-                .mapToObj(studentNumber -> new Student("S" + (numberOfStudents-studentNumber))) //(numberOfStudents-studentNumber)
+                .mapToObj(studentNumber -> new Student("S" + (numberOfStudents-studentNumber), 0)) //(numberOfStudents-studentNumber)
                 .toArray(Student[]::new);                                                       // To check if the sorting method (*) works
 
         var schools = IntStream.rangeClosed(0, 2)
