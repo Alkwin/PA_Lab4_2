@@ -3,6 +3,23 @@ import org.jetbrains.annotations.NotNull;
 public class School implements Comparable<School> {
     private final String name;
     private final Integer capacity;
+    private Integer currentNumberOfStudents = 0;
+
+    public Integer getCurrentNumberOfStudents() {
+        return currentNumberOfStudents;
+    }
+
+    public void setCurrentNumberOfStudents(Integer currentNumberOfStudents) {
+        this.currentNumberOfStudents = currentNumberOfStudents;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     private int score = 0;
 
@@ -19,14 +36,10 @@ public class School implements Comparable<School> {
         this.capacity = newCapacity;
     }
 
-    public void printInfo() {
+    //deprecated
+    public void printToString() {
         System.out.print(
-                "Name: " +
-                        this.name +
-                        "; " +
-                        "Capacity: " +
-                        this.capacity +
-                        '\n'
+                this.toString()
         );
 
     }
@@ -42,7 +55,7 @@ public class School implements Comparable<School> {
     }
 
     @Override
-    public int compareTo(@NotNull School o) { // To be able to make a TreeSet out of Schools
+    public int compareTo(School o) { // To be able to make a TreeSet out of Schools
         return this.name.compareTo(o.name);
     }
 }

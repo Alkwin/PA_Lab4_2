@@ -84,7 +84,7 @@ public class Problem {
             printMessageNewLine("School information:");
             printMessageNewLine(school.toString());
             printMessageNewLine("School's choices:");
-            schoolPreferenceMap.get(school).forEach(Student::printInfo);
+            schoolPreferenceMap.get(school).forEach(Student::printToString);
             printMessageNewLine("");
         });
     }
@@ -94,7 +94,7 @@ public class Problem {
             printMessageNewLine("Student information:");
             printMessageNewLine(student.toString());
             printMessageNewLine("Student's choices:");
-            studentPreferenceMap.get(student).forEach(School::printInfo);
+            studentPreferenceMap.get(student).forEach(School::printToString);
             printMessageNewLine("");
         });
     }
@@ -102,13 +102,13 @@ public class Problem {
 
     void printSchools(Set<School> schools) {
         for (School school : schools) {
-            school.printInfo();
+            school.printToString();
         }
     }
 
     void printStudents(List<Student> students) {
         for (Student student : students) {
-            student.printInfo();
+            student.printToString();
         }
     }
 
@@ -131,7 +131,7 @@ public class Problem {
         return schoolTreeSet.stream()
                 .filter(school -> schoolPreferenceMap
                         .get(school)
-                        .get(0)// Does not return the correct values... ?
+                        .get(0)
                         .getName()
                         .equals(student.getName())
                 )

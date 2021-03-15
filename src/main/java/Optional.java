@@ -73,12 +73,16 @@ public class Optional {
         });
 
         var schoolsWithTopChoice = PI.getSchoolsWithTopChoice(
-                PI.getStudentList().get(2)
+                PI.getStudents()[2]
         );
         PI.printMessageNewLine("Schools that have the student named " + PI.getStudents()[2].getName() +" as their top choice: ");
         schoolsWithTopChoice.forEach(school -> {
             PI.printMessageNewLine(school.toString());
         });
+
+        Solution solution = new Solution();
+
+        solution.matchSchoolsAndStudents(PI);
 
     }
 }

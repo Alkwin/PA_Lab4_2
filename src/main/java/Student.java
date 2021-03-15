@@ -1,6 +1,19 @@
-public class Student {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Comparator;
+
+public class Student implements Comparable<Student> {
     private final String name;
+
     private int score;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
     public String getName() {
         return name;
     }
@@ -10,14 +23,10 @@ public class Student {
         this.score = newScore;
     }
 
-    public void printInfo() {
+    //deprecated
+    public void printToString() {
         System.out.print(
-                "Name: " +
-                        this.name +
-                        "; " +
-                        "Score: " +
-                        this.score +
-                        '\n'
+                this.toString()
         );
     }
 
@@ -29,5 +38,10 @@ public class Student {
                 "Score: " +
                 this.score +
                 '\n';
+    }
+
+    @Override
+    public int compareTo(Student student) {
+        return Integer.compare(student.getScore(), this.getScore());
     }
 }

@@ -54,9 +54,9 @@ public class Compulsory {
     private void printSchoolsMap(Set<School> schoolTreeSet, Map<School, List<Student>> schoolPreferenceMap) {
         schoolTreeSet.forEach(school -> {
             printMessageNewLine("School information:");
-            school.printInfo();
+            school.printToString();
             printMessageNewLine("School's choices:");
-            schoolPreferenceMap.get(school).forEach(Student::printInfo);
+            schoolPreferenceMap.get(school).forEach(Student::printToString);
             printMessageNewLine("");
         });
     }
@@ -64,9 +64,9 @@ public class Compulsory {
     private void printStudentsMap(List<Student> studentList, Map<Student, List<School>> studentPreferenceMap) {
         studentList.forEach(student -> {
             printMessageNewLine("Student information:");
-            student.printInfo();
+            student.printToString();
             printMessageNewLine("Student's choices:");
-            studentPreferenceMap.get(student).forEach(School::printInfo);
+            studentPreferenceMap.get(student).forEach(School::printToString);
             printMessageNewLine("");
         });
     }
@@ -129,13 +129,13 @@ public class Compulsory {
 
     private void printSchools(Set<School> schools) {
         for (School school : schools) {
-            school.printInfo();
+            school.printToString();
         }
     }
 
     private void printStudents(List<Student> students) {
         for (Student student : students) {
-            student.printInfo();
+            student.printToString();
         }
     }
 
